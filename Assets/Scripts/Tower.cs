@@ -8,7 +8,8 @@ public class Tower : MonoBehaviour
     [Inject]
     IBillingSystem bank;
     [SerializeField] int cost = 75;
-    public Tower CreateTower(Tower tower, Vector3 position)
+    public int TowerCost => cost;
+    /*public Tower CreateTower(Tower tower, Vector3 position)
     {
 
         if (bank == null)
@@ -18,8 +19,8 @@ public class Tower : MonoBehaviour
         if (bank.GetCurrentBalance() >= cost)
         {
             bank.Withdraw(cost);
-            return Instantiate(tower, position, Quaternion.identity);
+            return DiContainer.InstantiatePrefab(tower, position, Quaternion.identity,this.transform);
         }
         return null;
-    }
+    }*/
 }

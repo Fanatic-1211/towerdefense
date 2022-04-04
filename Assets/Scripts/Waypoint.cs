@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Zenject;
 public class Waypoint : MonoBehaviour
 {
-    [SerializeField] Tower towerPrefab;
-    Tower occupation;
+    [Inject]
+    TowerFactory TowerFactory;
     [SerializeField] bool isPlaceable = true;
-    public bool IsPlaceable => occupation==null&& isPlaceable;
+    public bool IsPlaceable => isPlaceable;
    
     private void OnMouseDown()
     {
-        if (isPlaceable&& occupation==null)
+        if (isPlaceable)
         {
-            occupation = towerPrefab.CreateTower(towerPrefab,transform.position);
+            isPlaceable = TowerFactory.CreateTower(transform.position);
         }
     }
 

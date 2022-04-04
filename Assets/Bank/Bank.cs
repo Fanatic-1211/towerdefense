@@ -8,6 +8,7 @@ public class Bank : MonoBehaviour, IBillingSystem
     [SerializeField] int startingBalance = 150;
     [SerializeField] int currentBalance;
     [SerializeField] TextMeshProUGUI goldText;
+    [SerializeField] int winCost = 2000;
     private void Awake()
     {
         CurrentBalance = startingBalance;

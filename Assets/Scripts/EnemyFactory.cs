@@ -28,8 +28,8 @@ public class EnemyFactory : MonoBehaviour
         {
             disabledEnemy.Add(Instantiate(enemyPrefab, transform));
         }
-        disabledEnemy.ForEach(e => e.OnEnemyFinished += () => OnEnemyKilled(e));
-        disabledEnemy.ForEach(e => e.OnEnemyKilled += () => OnEnemyFinished(e));
+        disabledEnemy.ForEach(e => e.OnEnemyFinished += () => OnEnemyFinished(e));
+        disabledEnemy.ForEach(e => e.OnEnemyKilled += () => OnEnemyKilled(e));
         disabledEnemy.ForEach(e => e.gameObject.SetActive(false));
     }
     private void OnEnemyKilled(Enemy target)

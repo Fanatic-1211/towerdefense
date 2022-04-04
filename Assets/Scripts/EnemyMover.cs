@@ -12,15 +12,16 @@ public class EnemyMover : MonoBehaviour
         FindPath();
         ReturnToStart();
         StartCoroutine(PrintWaypointName());
-        
     }
     private void FindPath()
     {
         path.Clear();
-        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
-        foreach(GameObject waypoint in waypoints)
+        GameObject pathParentObj = GameObject.FindGameObjectWithTag("Path");
+        foreach (Transform child in pathParentObj.transform)
         {
-            path.Add(waypoint.GetComponent<Waypoint>());
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+            if (waypoint != null)
+                path.Add(waypoint);
         }
     }
     private void ReturnToStart()
@@ -47,6 +48,6 @@ public class EnemyMover : MonoBehaviour
         }
         enemy.TargetReachedEnd();
         this.gameObject.SetActive(false);
-      //  Destroy(gameObject);
+        //  Destroy(gameObject);
     }
 }

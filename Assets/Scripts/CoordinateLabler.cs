@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-[ExecuteAlways]
+[ExecuteAlways][RequireComponent(typeof(TextMeshProUGUI))]
 public class CoordinateLabler : MonoBehaviour
 {
     [SerializeField] bool dontUpdate = false;
@@ -27,12 +27,12 @@ public class CoordinateLabler : MonoBehaviour
             DisplayCoordinates();
             UpdateObjectName();
         }
-        ColorCoordinates();
+        SetLabelColor(waypoint.IsPlaceable);
         ToggleLabels();
     }
-    private void ColorCoordinates()
+    private void SetLabelColor(bool isPlaceable)
     {
-        label.color = !waypoint.IsPlaceable ? blockedColor : defaultColor ;
+        label.color = isPlaceable ?defaultColor : blockedColor  ;
     }
     private void ToggleLabels()
     {

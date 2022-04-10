@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2662671670933094106, guid: 625727eb245f7584f9348aac929dc953, type: 3}
       propertyPath: m_Name
-      value: TilleRoadStraight Variant
+      value: TilleRoadRotatedStraight
       objectReference: {fileID: 0}
     - target: {fileID: 2662671670933094107, guid: 625727eb245f7584f9348aac929dc953, type: 3}
       propertyPath: m_RootOrder
@@ -74,6 +74,26 @@ PrefabInstance:
     - target: {fileID: 8469976938872307124, guid: 625727eb245f7584f9348aac929dc953, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475117276502995030, guid: 625727eb245f7584f9348aac929dc953, type: 3}
+      propertyPath: m_text
+      value: (-3, -1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475117276502995030, guid: 625727eb245f7584f9348aac929dc953, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475117276502995030, guid: 625727eb245f7584f9348aac929dc953, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475117276502995030, guid: 625727eb245f7584f9348aac929dc953, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475117276502995030, guid: 625727eb245f7584f9348aac929dc953, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 625727eb245f7584f9348aac929dc953, type: 3}

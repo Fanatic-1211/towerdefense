@@ -23,6 +23,13 @@ public class BuyableItemCard : MonoBehaviour
         titleText.text = title;
         active = true;
     }
+    public void SetUp(IBuyable buyable)
+    {
+        image.sprite = buyable.GetItemSprite();
+        costText.text = buyable.GetCost().ToString();
+        titleText.text = buyable.GetTowerName();
+        active = true;
+    }
 
     public void Active(bool active)
     {

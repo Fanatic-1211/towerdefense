@@ -27,7 +27,7 @@ public class CoordinateLabler : MonoBehaviour
             DisplayCoordinates();
             UpdateObjectName();
         }
-        SetLabelColor(waypoint.IsPlaceable);
+      //  SetLabelColor(waypoint.IsPlaceable);
         ToggleLabels();
     }
     private void SetLabelColor(bool isPlaceable)

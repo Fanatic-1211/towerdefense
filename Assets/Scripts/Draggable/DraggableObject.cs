@@ -6,10 +6,21 @@ public class DraggableObject : MonoBehaviour
 {
     GameObject draggableVisible;
     [SerializeField]float mZCoord = 18f;
+    [SerializeField] float yOffset = 5f;
+    string cameraRaycastIgnoreLayer = "TilePlaceable";
+    string draggableRaycastIgnoreLayer = "CameraRaycast";
     TileObject currentTile = null;
     public event Action<TileObject> OnNewTileEntered;
     public event Action<TileObject> OnTileExit;
     public event Action<TileObject> OnDragEnded;
+    int cameraIgnore=0;
+    int draggableIgnore=0;
+
+    private void Awake()
+    {
+        cameraIgnore = LayerMask.GetMask(draggableRaycastIgnoreLayer);
+        draggableIgnore = LayerMask.GetMask(cameraRaycastIgnoreLayer);
+    }
     RaycastHit hit;
     public void SetUp(GameObject draggableVisiblePrefab)
     {
@@ -20,9 +31,8 @@ public class DraggableObject : MonoBehaviour
     private void Update()
     {
         Debug.DrawRay(transform.position, Vector3.down*100f, Color.red);
-        Physics.Raycast(this.transform.position, Vector3.down,out hit);
         TileObject newTile = null;
-        if (hit.collider != null) 
+        if (Physics.Raycast(this.transform.position, Vector3.down, out hit, 1000f, draggableIgnore)) 
             newTile = hit.collider.gameObject.GetComponent<TileObject>();
         if(newTile!=currentTile)
         {
@@ -31,7 +41,20 @@ public class DraggableObject : MonoBehaviour
             currentTile = newTile;
         }
         if (Input.GetMouseButtonUp(0)) OnDragEnded?.Invoke(currentTile);
-        transform.position = GetMouseAsWorldPoint();
+        transform.position = FindPanelByRaycast();
+
+    }
+    private Vector3 FindPanelByRaycast()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 10000f, cameraIgnore))
+        {
+            Debug.Log(hit.transform.name);
+            Debug.Log(hit.transform.gameObject.layer);
+            return hit.point;
+        }
+        return transform.position;
 
     }
     private void LeaveTile(TileObject tile)

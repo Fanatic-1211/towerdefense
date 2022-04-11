@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7723877376865146651}
   - component: {fileID: 8673832829149017305}
   - component: {fileID: 3967767263771566339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: (0, 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (0, -1)
+  m_text: (2, 1)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 3965026022998437089}
   - component: {fileID: 2292813200785298859}
   - component: {fileID: 3383346074713420095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280701119514086718}
   - component: {fileID: 6503457972493786099}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AddSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,8 +366,8 @@ GameObject:
   - component: {fileID: 7385420469615062926}
   - component: {fileID: 7750739184441119017}
   - component: {fileID: 3026374741928924971}
-  m_Layer: 0
-  m_Name: (0, -1)
+  m_Layer: 7
+  m_Name: (2, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

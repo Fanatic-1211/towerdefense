@@ -7,7 +7,6 @@ public class Draginitatioin : MonoBehaviour
     [SerializeField] DraggableManager manager;
     [SerializeField] GameObject draggable;
 
-
     public void Instantiate()
     {
         manager.StartDragging(draggable);

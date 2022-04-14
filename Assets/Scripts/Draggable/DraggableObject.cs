@@ -50,8 +50,6 @@ public class DraggableObject : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 10000f, cameraIgnore))
         {
-            Debug.Log(hit.transform.name);
-            Debug.Log(hit.transform.gameObject.layer);
             return hit.point;
         }
         return transform.position;

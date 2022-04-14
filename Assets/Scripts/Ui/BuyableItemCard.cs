@@ -4,18 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
-public class BuyableItemCard : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public class BuyableItemCard : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] Button button;
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI titleText;
     public event Action OnItemPressed;
     bool active = true;
-    private void Awake()
-    {
-        button.onClick.AddListener(OnButtonPressed);
-    }
+   
     public void SetUp(Sprite sprite, int cost,string title)
     {
         image.sprite = sprite;
@@ -30,13 +28,12 @@ public class BuyableItemCard : MonoBehaviour
         titleText.text = buyable.GetTowerName();
         active = true;
     }
-
     public void Active(bool active)
     {
         this.active = active;
-        button.interactable = active;
+        image.color = active ? Color.white : Color.gray;
     }
-    private void OnButtonPressed()
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (active)
             OnItemPressed?.Invoke();

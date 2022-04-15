@@ -43,4 +43,9 @@ public class Bank : MonoBehaviour, IBillingSystem
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }
+
+    public bool CanBuy(int cost)
+    {
+        return cost <= currentBalance;
+    }
 }

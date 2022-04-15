@@ -11,12 +11,12 @@ public class CoordinateLabler : MonoBehaviour
     [SerializeField] Color blockedColor = Color.gray;
     TextMeshPro label;
     Vector2Int gridPosition = new Vector2Int();
-    Waypoint waypoint;
+
     private void Awake()
     {
         label = this.GetComponent<TextMeshPro>();
         label.enabled = false;
-        waypoint = GetComponentInParent<Waypoint>();
+
         label.color = defaultColor;
         DisplayCoordinates();
     }

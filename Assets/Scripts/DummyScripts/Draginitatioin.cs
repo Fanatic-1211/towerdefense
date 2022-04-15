@@ -9,6 +9,6 @@ public class Draginitatioin : MonoBehaviour
 
     public void Instantiate()
     {
-        manager.StartDragging(draggable);
+       // manager.StartDragging(draggable);
     }
 }

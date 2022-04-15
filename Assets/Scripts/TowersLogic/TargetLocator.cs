@@ -7,12 +7,17 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] Transform weapon;
     [SerializeField] Transform target;
     [SerializeField] ParticleSystem shotParticle;
+    [SerializeField] Enemy debugTarget;
+    private List<Enemy> enemyWithInRange = new List<Enemy>();
+
     float radius = 15f;
+    
     private void Update()
     {
         FindClosestTarget();
         AimWeapon();
     }
+   
     private void FindClosestTarget()
     {
         Enemy[] enemies = FindObjectsOfType<Enemy>();

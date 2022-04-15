@@ -6,8 +6,8 @@ public class TileManager : MonoBehaviour
 {
     [SerializeField] List<TileObject> tilesOnScene;
 
-    public void HighLightTile(TileObject tile,bool highlight)
+    public void HighLightTile(ITowerPlaceable tile,bool highlight)
     {
-        tile.HighlightCell(highlight);
+        tile.HighlightPlace(highlight);
     }
 }

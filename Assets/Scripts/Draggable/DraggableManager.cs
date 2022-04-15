@@ -6,7 +6,7 @@ public class DraggableManager : MonoBehaviour
 {
     [SerializeField] DraggableObject draggablePrefab;
     [SerializeField] TileManager tileManager;
-    private event Action<TileObject> OnDragEnded;
+    private event Action<ITowerPlaceable> OnDragEnded;
     DraggableObject currentDragable;
     private bool isDragging = false;
     private void Awake()
@@ -18,30 +18,27 @@ public class DraggableManager : MonoBehaviour
         currentDragable.OnTileExit += CurrentDragable_OnTileExit;
         isDragging = false;
     }
-    
-
-    private void CurrentDragable_OnTileExit(TileObject obj)
+    private void CurrentDragable_OnTileExit(ITowerPlaceable obj)
     {
         tileManager.HighLightTile(obj, false);
     }
 
-    private void CurrentDragable_OnNewTileEntered(TileObject obj)
+    private void CurrentDragable_OnNewTileEntered(ITowerPlaceable obj)
     {
         tileManager.HighLightTile(obj, true);
     }
 
-    private void CurrentDragable_OnDragEnded(TileObject obj)
+    private void CurrentDragable_OnDragEnded(ITowerPlaceable obj)
     {
-        OnDragEnded?.Invoke(obj);
+        if (obj != null) tileManager.HighLightTile(obj, false);
         currentDragable.gameObject.SetActive(false);
+        OnDragEnded?.Invoke(obj);
     }
 
-    public Action<TileObject> StartDragging(GameObject draggableViewPrefab)
+    public void StartDragging(GameObject draggableViewPrefab,Action<ITowerPlaceable> onTowerDroppedCallback)
     {
-        OnDragEnded = null;
+        OnDragEnded = onTowerDroppedCallback;
         currentDragable.gameObject.SetActive(true);
         currentDragable.SetUp(draggableViewPrefab);
-        return OnDragEnded;
     }
-
 }

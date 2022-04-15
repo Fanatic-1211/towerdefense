@@ -12,7 +12,7 @@ public class TowerFactory : MonoBehaviour
     List<Tower> activeTowers = new List<Tower>();
 
     [Inject]
-    private void Construct(IBillingSystem bank, IMarket market,DraggableManager draggableManager)
+    private void Construct(IBillingSystem bank, IMarket market, DraggableManager draggableManager)
     {
         this.bank = bank;
         this.market = market;
@@ -20,20 +20,19 @@ public class TowerFactory : MonoBehaviour
     }
     private void Start()
     {
-         market.SetObjects(towersData, CreateTower);
+        market.SetObjects(towersData, CreateTower);
     }
     private void CreateTower(TowerData towerData)
     {
-        Debug.Log($"Picked tower with name {towerData.name}");
-        draggableManager.StartDragging(towerData.TowerPrefab.gameObject);
+        draggableManager.StartDragging(towerData.TowerPrefab.gameObject, (placeable) => CreateTower(towerData, placeable));
     }
-    public bool CreateTower(Vector3 position)
+    public void CreateTower(TowerData towerData, ITowerPlaceable placeable)
     {
-        return false;
-        /* if (towerPrefab.TowerCost > bank.GetCurrentBalance())
-             return false;
-         activeTowers.Add(Instantiate(towerPrefab, position, Quaternion.identity, this.transform));
-         bank.Withdraw(towerPrefab.TowerCost);
-         return true;*/
+        if (placeable != null)
+            if (placeable.IsCellAvalable()&& bank.CanBuy(towerData.GetCost()))
+            {
+                bank.Withdraw(towerData.GetCost());
+                activeTowers.Add(placeable.PlaceTower(towerData.TowerPrefab));
+            }
     }
 }

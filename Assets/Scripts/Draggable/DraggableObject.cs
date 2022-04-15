@@ -9,10 +9,10 @@ public class DraggableObject : MonoBehaviour
     [SerializeField] float yOffset = 5f;
     string cameraRaycastIgnoreLayer = "TilePlaceable";
     string draggableRaycastIgnoreLayer = "CameraRaycast";
-    TileObject currentTile = null;
-    public event Action<TileObject> OnNewTileEntered;
-    public event Action<TileObject> OnTileExit;
-    public event Action<TileObject> OnDragEnded;
+    ITowerPlaceable currentTile = null;
+    public event Action<ITowerPlaceable> OnNewTileEntered;
+    public event Action<ITowerPlaceable> OnTileExit;
+    public event Action<ITowerPlaceable> OnDragEnded;
     int cameraIgnore=0;
     int draggableIgnore=0;
 
@@ -31,9 +31,9 @@ public class DraggableObject : MonoBehaviour
     private void Update()
     {
         Debug.DrawRay(transform.position, Vector3.down*100f, Color.red);
-        TileObject newTile = null;
+        ITowerPlaceable newTile = null;
         if (Physics.Raycast(this.transform.position, Vector3.down, out hit, 1000f, draggableIgnore)) 
-            newTile = hit.collider.gameObject.GetComponent<TileObject>();
+            newTile = hit.collider.gameObject.GetComponent<ITowerPlaceable>();
         if(newTile!=currentTile)
         {
             if (currentTile != null) LeaveTile(currentTile);
@@ -55,11 +55,11 @@ public class DraggableObject : MonoBehaviour
         return transform.position;
 
     }
-    private void LeaveTile(TileObject tile)
+    private void LeaveTile(ITowerPlaceable tile)
     {
         OnTileExit?.Invoke(tile);
     }
-    private void EnterTile(TileObject tile)
+    private void EnterTile(ITowerPlaceable tile)
     {
         OnNewTileEntered?.Invoke(tile);
     }

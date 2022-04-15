@@ -15,4 +15,4 @@ MonoBehaviour:
   towerName: GreenTower
   towerPrefab: {fileID: -1050604253643113487, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   cost: 75
-  towerSprite: {fileID: 21300000, guid: 0d6339e75b4ff744d9173be999bbc549, type: 3}
+  towerSprite: {fileID: 4127697292310151874, guid: 67514c3c81301eb458bce3d9f70e4fc3, type: 3}

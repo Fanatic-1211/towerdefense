@@ -15,4 +15,4 @@ MonoBehaviour:
   towerName: YellowTower
   towerPrefab: {fileID: -1050604253643113487, guid: b41e5545b2a8a6648ac6ee304d401983, type: 3}
   cost: 75
-  towerSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  towerSprite: {fileID: 5206641424296845850, guid: 67514c3c81301eb458bce3d9f70e4fc3, type: 3}

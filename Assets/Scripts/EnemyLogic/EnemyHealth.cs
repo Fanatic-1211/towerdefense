@@ -1,31 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EnemyHealth : MonoBehaviour
+using System;
+public class EnemyHealth : MonoBehaviour,IDamageable
 {
-    [SerializeField] int maxHp = 10;
-    [SerializeField] int difficultyRamp = 1;
+    [SerializeField] int startHp = 10;
+    public event Action<int> OnDamageTaken;
+    public event Action OnReachedZero;
     private int currentHp = 0;
-    [SerializeField] Enemy enemy;
+    public int CurentHealth => currentHp;
     // Start is called before the first frame update
     void OnEnable()
     {
-        currentHp = maxHp;
+        currentHp = startHp;
     }
 
-    private void OnParticleCollision(GameObject other)
+    public void DealDamage(int damagePoints)
     {
-        ProcessHit();
-    }
-    private void ProcessHit()
-    {
-        currentHp--;
-        Debug.Log(currentHp);
-        if (currentHp <= 0) 
+        int damageAbs = Math.Abs(damagePoints);
+        currentHp -= Math.Abs(damageAbs);
+        OnDamageTaken?.Invoke(damageAbs);
+        if (currentHp <= 0)
         {
-            maxHp += difficultyRamp;
-            enemy.TargetDied();
+            OnReachedZero?.Invoke();
         }
     }
 }

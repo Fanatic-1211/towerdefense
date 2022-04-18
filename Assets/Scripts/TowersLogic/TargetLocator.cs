@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
-    //[SerializeField] Transform target;
-    [SerializeField] ParticleSystem shotParticle;
     ITargetable target;
     private List<ITargetable> enemyWithInRange = new List<ITargetable>();
-
+    public event Action<ITargetable> OnNewTargetArrive;
+    public event Action OnNoTargets;
+    ITargetable currentTarget;
     float radius = 15f;
 
     private void Update()
     {
-        //  FindClosestTarget();
         AimWeapon();
     }
 
@@ -24,6 +24,11 @@ public class TargetLocator : MonoBehaviour
         if (target != null)
         {
             enemyWithInRange.Add(target);
+            if (currentTarget == null)
+            {
+                currentTarget = enemyWithInRange[0];
+                OnNewTargetArrive?.Invoke(currentTarget);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -32,38 +37,27 @@ public class TargetLocator : MonoBehaviour
         if (target != null)
         {
             enemyWithInRange.Remove(target);
+            if (currentTarget == target)
+            {
+                if (enemyWithInRange.Count > 0) 
+                { 
+                    currentTarget = enemyWithInRange[0];
+                    OnNewTargetArrive?.Invoke(currentTarget);
+                }
+                else
+                {
+                    currentTarget = null;
+                    OnNoTargets?.Invoke();
+                }
+            }
         }
     }
-    /* private void FindClosestTarget()
-     {
-         ITargetable[] enemies = FindObjectsOfType<ITargetable>();
-         Transform closestTarget = null;
-         float maxDistance = Mathf.Infinity;
-         foreach (ITargetable enemy in enemies)
-         {
-             float targetDistance = Vector3.Distance(transform.position, enemy.transform.position);
-             if (targetDistance < maxDistance)
-             {
-                 closestTarget = enemy.transform;
-                 maxDistance = targetDistance;
-             }
-         }
-         target = closestTarget;
-     }*/
     private void AimWeapon()
     {
         if (enemyWithInRange.Count > 0)
         {
             target = enemyWithInRange[0];
-            float targetDistance = Vector3.Distance(transform.position, target.GetTargetPosition());
-            Attack(targetDistance < radius);
-
             weapon.transform.LookAt(target.GetTargetPosition());
         }
-    }
-    private void Attack(bool isActive)
-    {
-        var emmision = shotParticle.emission;
-        emmision.enabled = isActive;
     }
 }

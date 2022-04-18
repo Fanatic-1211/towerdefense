@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7391033526164236129}
   - component: {fileID: 8874404869236744196}
   - component: {fileID: 5502185232225236389}
+  - component: {fileID: 611717813}
   m_Layer: 0
   m_Name: Ram
   m_TagString: Untagged
@@ -131,14 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f86958c9826ae4fb74011628669086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   speed: 1
   enemy: {fileID: 5502185232225236389}
 --- !u!65 &7391033526164236129
@@ -149,7 +142,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5040643765344069697}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5, y: 4, z: 5}
@@ -166,9 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b6a511b33e3f14e8ad20bcf9bd6165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 5
-  currentHp: 0
-  enemy: {fileID: 5502185232225236389}
+  startHp: 10
 --- !u!114 &5502185232225236389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +174,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldReward: 25
   goldPenalty: 25
+  enemyHealth: {fileID: 8874404869236744196}
+--- !u!54 &611717813
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040643765344069697}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

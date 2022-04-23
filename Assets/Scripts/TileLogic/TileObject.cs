@@ -2,33 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileObject : MonoBehaviour, ITowerPlaceable
+namespace Game.Environment.Tile
 {
-    [SerializeField] SpriteRenderer addRenderer;
-    private GameObject occupation;
-    public void SetOccupation(GameObject occupation)
+    public class TileObject : MonoBehaviour, ITowerPlaceable
     {
-        this.occupation = occupation;
-    }
-    public bool IsCellAvalable() => occupation == null;
-    public T PlaceTower<T>(T towerPrefab) where T : MonoBehaviour
-    { 
-        if (!IsCellAvalable())
-            return null;
-        T obj = Instantiate(towerPrefab,this.transform.position, Quaternion.identity, this.transform);
-        occupation = obj.gameObject;
-        return obj;
-    }
+        Dictionary<TileType, Color> tileGizmosColor = new Dictionary<TileType, Color>()
+        {
+            { TileType.finish,Color.black},
+            { TileType.spawn,Color.white},
+            { TileType.path,Color.yellow},
+            { TileType.placeable,Color.green},
+             { TileType.locked,Color.magenta}
 
-    public void HighlightPlace(bool highLight)
-    {
-        addRenderer.color = IsCellAvalable() ? Color.white : Color.red;
-        addRenderer.gameObject.SetActive(highLight);
-    }
+        };
+        public TileType TileType => tileType;
+        [SerializeField] TileType tileType;
+        [SerializeField] SpriteRenderer addRenderer;
+        private GameObject occupation;
+        public void SetOccupation(GameObject occupation)
+        {
+            this.occupation = occupation;
+        }
+        public bool IsCellAvalable() => occupation == null;
+        public T PlaceTower<T>(T towerPrefab) where T : MonoBehaviour
+        {
+            if (!IsCellAvalable())
+                return null;
+            T obj = Instantiate(towerPrefab, this.transform.position, Quaternion.identity, this.transform);
+            occupation = obj.gameObject;
+            return obj;
+        }
 
-    public void ClearCell()
-    {
-        if (occupation != null)
-            Destroy(occupation);
+        public void HighlightPlace(bool highLight)
+        {
+            addRenderer.color = IsCellAvalable() ? Color.white : Color.red;
+            addRenderer.gameObject.SetActive(highLight);
+        }
+
+        public void ClearCell()
+        {
+            if (occupation != null)
+                Destroy(occupation);
+        }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = tileGizmosColor[tileType];
+            Gizmos.DrawSphere(this.transform.position, 1);
+        }
     }
 }

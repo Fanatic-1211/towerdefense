@@ -6,27 +6,29 @@ using System.Linq;
 
 namespace Game.Environment.Tile
 {
+    [System.Flags]
     public enum NeighborCellPosition
     {
-        north,
-        west,
-        south,
-        east
+        none = 0,
+        north = 1,
+        west = 2,
+        south = 4,
+        east = 8
     }
     public class PathTileData
     {
-        public NeighborCellPosition PreviousNeighborSide { get; private set; }
-        public NeighborCellPosition NextNeighborSide { get; private set; }
+        public NeighborCellPosition NeighborCellPosition { get; private set; }
+
         public TileObject ThisTileObject { get; private set; }
 
-        public PathTileData( TileObject thisTileObject,NeighborCellPosition previousNeighborSide, NeighborCellPosition nextNeighborSide)
+        public PathTileData(TileObject thisTileObject, NeighborCellPosition previousNeighborSide, NeighborCellPosition nextNeighborSide)
         {
-            PreviousNeighborSide = previousNeighborSide;
-            NextNeighborSide = nextNeighborSide;
+            NeighborCellPosition |= previousNeighborSide;
+            NeighborCellPosition |= nextNeighborSide;
             ThisTileObject = thisTileObject;
         }
     }
-    public class PathBilder 
+    public class PathBilder
     {
         public List<PathTileData> BuildPath(List<TileObject> pathlist)
         {
@@ -37,7 +39,7 @@ namespace Game.Environment.Tile
             TileObject end = removePathList.FirstOrDefault(p => p.TileType == TileType.finish);
             removePathList.Remove(start);
             removePathList.Remove(end);
-            TileObject nextObject= Extensions.GetClosestOnbject(start, removePathList);
+            TileObject nextObject = Extensions.GetClosestOnbject(start, removePathList);
             output.Add(new PathTileData(start, NeighborCellPosition.west, GetSide(start, nextObject)));
             TileObject currentTile = nextObject;
             TileObject prevoious = start;
@@ -51,6 +53,7 @@ namespace Game.Environment.Tile
                 removePathList.Remove(currentTile);
             }
             output.Add(CreatePathData(prevoious, currentTile, end));
+            output.Add(new PathTileData(end, GetSide(end, currentTile),NeighborCellPosition.east));
             return output;
         }
         private PathTileData CreatePathData(TileObject previousTile, TileObject currentTile, TileObject nextTile)
@@ -62,16 +65,16 @@ namespace Game.Environment.Tile
         private NeighborCellPosition GetSide(TileObject fromTile, TileObject toTile)
         {
             Vector3 offsetPositon = toTile.transform.position - fromTile.transform.position;
-            if(offsetPositon.x> offsetPositon.y)
+            if (offsetPositon.x > offsetPositon.z)
             {
-                if (offsetPositon.x > 0)
+                if (offsetPositon.x > Mathf.Abs(offsetPositon.z/2))
                     return NeighborCellPosition.east;
                 else
                     return NeighborCellPosition.south;
             }
             else
             {
-                if (offsetPositon.y > 0)
+                if (offsetPositon.z > Mathf.Abs(offsetPositon.x/2))
                     return NeighborCellPosition.north;
                 else
                     return NeighborCellPosition.west;

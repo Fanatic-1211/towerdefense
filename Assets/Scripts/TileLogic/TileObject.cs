@@ -18,6 +18,12 @@ namespace Game.Environment.Tile
         public TileType TileType => tileType;
         [SerializeField] TileType tileType;
         [SerializeField] SpriteRenderer addRenderer;
+        [SerializeField] MeshFilter meshFilter;
+        public void SetMeshView(Mesh mesh,float rotation)
+        {
+            meshFilter.mesh = mesh;
+            meshFilter.transform.localEulerAngles = new Vector3(0, rotation);
+        }
         private GameObject occupation;
         public void SetOccupation(GameObject occupation)
         {

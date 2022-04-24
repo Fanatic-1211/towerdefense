@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Zenject;
-public class EnemyFactory : MonoBehaviour
+using Game.Environment.Tile;
+
+    public class EnemyFactory : MonoBehaviour
 {
-    
+    [SerializeField] TileManager tileManager;
     [SerializeField] Enemy enemyPrefab;
     [Range(0,50)][SerializeField] int poolSize = 5;
     [Range(0.1f,30f)][SerializeField] float spawnTimer = 1f;

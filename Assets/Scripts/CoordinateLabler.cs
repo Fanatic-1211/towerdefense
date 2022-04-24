@@ -43,8 +43,8 @@ public class CoordinateLabler : MonoBehaviour
     }
     private void DisplayCoordinates()
     {
-        gridPosition.x = (int)(this.transform.position.x / UnityEditor.EditorSnapSettings.move.x);
-        gridPosition.y = (int)(this.transform.position.z / UnityEditor.EditorSnapSettings.move.y);
+        gridPosition.x = Mathf.RoundToInt(this.transform.position.x / UnityEditor.EditorSnapSettings.move.x);
+        gridPosition.y = Mathf.RoundToInt(this.transform.position.z / UnityEditor.EditorSnapSettings.move.y);
         label.text = gridPosition.ToString();
 
     }

@@ -18,24 +18,16 @@ namespace Game.Environment.Map
     {
         public string tileObstacleName;
     }
-    [System.Serializable]
-    public class MapData
+
+    [CreateAssetMenu(fileName = "NewMapData", menuName = "CreateMapData")]
+    public class MapData : ScriptableObject
     {
-        [JsonProperty] [SerializeField] TileMapData[,] tileMapDatas = new TileMapData[10, 10];
-        [JsonProperty] [SerializeField] string test = "A";
-        
-        public MapData()
+        [SerializeField] SMatrix<TileMapData> tileMapDatas;
+        public SMatrix<TileMapData> TileGridCells => tileMapDatas;
+        public void CreateTileMap(Vector2Int mapSize)
         {
-            for (int i = 0; i < tileMapDatas.GetLength(0); i++)
-            {
-                for (int i1 = 0; i1 < tileMapDatas.GetLength(1); i1++)
-                {
-                    TileMapData tileMap = new TileMapData();
-                    tileMap.tileMeshName = "aaa"+i1.ToString()+i.ToString();
-                    tileMap.tileMeshRotation = 0;
-                    tileMapDatas[i, i1] = tileMap;
-                }
-            }
+            tileMapDatas = new SMatrix<TileMapData>(mapSize);
         }
+       
     }
 }

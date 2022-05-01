@@ -6,22 +6,36 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MapData", menuName = "TileMeshCollection")]
 public class TileMeshLibrary : ScriptableObject
 {
+    [System.Serializable]
     public class TileMesh
     {
         public string meshName;
         public Mesh Mesh;
     }
     [SerializeField] private List<TileMesh> tileMeshCollection = new List<TileMesh>();
+    [SerializeField] private Mesh fallbackMesh;
     Dictionary<string, Mesh> tileMeshDictionary = new Dictionary<string, Mesh>();
     
     public Mesh GetMeshByString(string meshName)
     {
+        IsDictionaryBuilded();
+        if (tileMeshDictionary.ContainsKey(meshName))
+            return tileMeshDictionary[meshName];
+        return fallbackMesh;
+    } 
+    private bool IsDictionaryBuilded(bool buildDictionary = true)
+    {
         if (tileMeshDictionary.Count <= 0)
         {
-            BuildDictionary();
+            if (buildDictionary) 
+            {
+                BuildDictionary();
+                return true;
+            }
+            return false;
         }
-        return tileMeshDictionary[meshName];
-    } 
+        return true;
+    }
     private void BuildDictionary()
     {
         tileMeshDictionary.Clear();

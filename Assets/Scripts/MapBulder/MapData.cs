@@ -9,7 +9,7 @@ namespace Game.Environment.Map
     [System.Serializable]
     public class TileMapData
     {
-        public string tileMeshName;
+        public string tileMeshName = string.Empty;
         public int tileMeshRotation;
         public Vector2Int tileGridPosition;
         public TileType tileType;
@@ -28,6 +28,6 @@ namespace Game.Environment.Map
         {
             tileMapDatas = new SMatrix<TileMapData>(mapSize);
         }
-       
+        public Vector2Int GetGridSize()=> tileMapDatas.MatrixSize;
     }
 }

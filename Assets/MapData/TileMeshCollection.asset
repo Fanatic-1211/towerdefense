@@ -13,6 +13,33 @@ MonoBehaviour:
   m_Name: TileMeshCollection
   m_EditorClassIdentifier: 
   tileMeshCollection:
-  - meshName: 
-    Mesh: {fileID: 0}
-  fallbackMesh: {fileID: 0}
+  - meshPreview: {fileID: 21300000, guid: a6e38fc460d9f994d898157cf647736e, type: 3}
+    meshName: Grass
+    Mesh: {fileID: -2432090755550338912, guid: 5076ba01f21af0c4daff73ab13dba476, type: 3}
+    tileType: 0
+  - meshPreview: {fileID: 21300000, guid: 4bdd8192b3ca34b4a8b8633779830e6f, type: 3}
+    meshName: RoadCorner
+    Mesh: {fileID: -2432090755550338912, guid: 626410dc07212d749823da2540a223bb, type: 3}
+    tileType: 1
+  - meshPreview: {fileID: 21300000, guid: 015a06e371807604fb26fd1ea310c818, type: 3}
+    meshName: Shore
+    Mesh: {fileID: -2432090755550338912, guid: 188ea90cdfe6c634eb85f7a132fcebeb, type: 3}
+    tileType: 2
+  - meshPreview: {fileID: 21300000, guid: 015a06e371807604fb26fd1ea310c818, type: 3}
+    meshName: ShoreCorner
+    Mesh: {fileID: -2432090755550338912, guid: fa1397209d9adee4db5f8a2bba8327f0, type: 3}
+    tileType: 2
+  - meshPreview: {fileID: 21300000, guid: dc888ebeb4c60b047bc754f9f5e87190, type: 3}
+    meshName: LakeCorner
+    Mesh: {fileID: -2432090755550338912, guid: 188ea90cdfe6c634eb85f7a132fcebeb, type: 3}
+    tileType: 2
+  - meshPreview: {fileID: 21300000, guid: 93945db88a956e443ae8fdb377f35148, type: 3}
+    meshName: WaterOpen
+    Mesh: {fileID: -2432090755550338912, guid: a847eae99d42cdf49b01d8ca9f52e595, type: 3}
+    tileType: 2
+  - meshPreview: {fileID: 21300000, guid: 30246a65550d4b848a6c1d207bf008c8, type: 3}
+    meshName: RoadStraight
+    Mesh: {fileID: -2432090755550338912, guid: e618ab8e55a3ed942a408f4d1b7f896e, type: 3}
+    tileType: 1
+  fallbackMesh: {fileID: -2432090755550338912, guid: c7b1d47513477a84cb86109bc3cd54d5, type: 3}
+  mainPalette: {fileID: -8469494145858465668, guid: 5076ba01f21af0c4daff73ab13dba476, type: 3}

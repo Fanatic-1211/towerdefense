@@ -7,14 +7,17 @@ namespace Game.Environment.Map
     [CustomEditor(typeof(MapCreator))]
     public class MapCreatorEditor : Editor
     {
-        
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
             MapCreator myScript = (MapCreator)target;
-            if (GUILayout.Button("InitializeMap"))
+            if (GUILayout.Button("RegenerateMap"))
             {
-                myScript.InitializeMap();
+                myScript.RegenerateMap();
+            }
+            if (GUILayout.Button("LoadMap"))
+            {
+                myScript.LoadMap();
             }
         }
 

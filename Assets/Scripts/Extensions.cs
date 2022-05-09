@@ -4,6 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class SMatrix<T> where T: class, new()
 {
+    public Vector2Int MatrixSize => new Vector2Int(arrays.Count, arrays[0].cells.Count);
+
     public List<Array> arrays = new List<Array>();
     public T this[int x, int y] => arrays[x][y];
     public SMatrix(Vector2Int size)
@@ -26,6 +28,16 @@ public class SMatrix<T> where T: class, new()
 }
 public class Extensions : MonoBehaviour
 {
+    public static void DisposeMatrix<T>(T[,] matrix) where T : MonoBehaviour
+    {
+        for (int x = 0; x < matrix.GetLength(0); x++)
+        {
+            for (int y = 0; y < matrix.GetLength(1); y++)
+            {
+                Destroy(matrix[x, y].gameObject);
+            }
+        }
+    }
     public static void DisposeObject<T>(List<T> obj) where T : MonoBehaviour
     {
         for (int i = obj.Count - 1; i >= 0; i--)

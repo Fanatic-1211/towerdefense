@@ -1,19 +1,25 @@
+using Game.Environment.Tile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 [CreateAssetMenu(fileName = "MapData", menuName = "TileMeshCollection")]
 public class TileMeshLibrary : ScriptableObject
 {
     [System.Serializable]
     public class TileMesh
     {
+        public Sprite meshPreview;
         public string meshName;
         public Mesh Mesh;
+        public TileType tileType;
     }
     [SerializeField] private List<TileMesh> tileMeshCollection = new List<TileMesh>();
     [SerializeField] private Mesh fallbackMesh;
+    [SerializeField] private Material mainPalette;
+    public Material MainPalette => mainPalette;
     Dictionary<string, Mesh> tileMeshDictionary = new Dictionary<string, Mesh>();
     
     public Mesh GetMeshByString(string meshName)
@@ -45,7 +51,7 @@ public class TileMeshLibrary : ScriptableObject
             tileMeshDictionary[item.meshName] = item.Mesh;
         }
     }
-    private List<TileMesh> GetTileMeshes()
+    public List<TileMesh> GetAllTileMeshes()
     {
         var output = new List<TileMesh>();
         output.AddRange(tileMeshCollection);

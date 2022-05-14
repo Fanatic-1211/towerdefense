@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7857563975523454783}
   - component: {fileID: 255424140084035485}
+  - component: {fileID: 7490201338946861393}
+  - component: {fileID: 4893943978630294660}
   m_Layer: 0
   m_Name: TestTile
   m_TagString: Untagged
@@ -130,3 +132,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 5597050347980080941}
   meshRenderer: {fileID: 8973718584575878073}
+  selectable: {fileID: 4893943978630294660}
+--- !u!65 &7490201338946861393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368025748080891269}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4893943978630294660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368025748080891269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203f1ced28f0e844e9f22aed5ef7cce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 8973718584575878073}
+  highLightMaterial: {fileID: 2100000, guid: a825701f5beadbd479ab37aa7152fc7e, type: 2}

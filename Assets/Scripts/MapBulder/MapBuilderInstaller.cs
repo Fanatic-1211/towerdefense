@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-
-public class MapBuilderInstaller : MonoInstaller
+namespace Game.Environment.Map
 {
-    [SerializeField] TileMeshLibrary tileMeshLibrary;
-    public override void InstallBindings()
+    public class MapBuilderInstaller : MonoInstaller
     {
-        Container.Bind<TileMeshLibrary>().To<TileMeshLibrary>().FromInstance(tileMeshLibrary);
+        [SerializeField] TileMeshLibrary tileMeshLibrary;
+        [SerializeField] MapCreator mapCreator;
+        public override void InstallBindings()
+        {
+            Container.Bind<TileMeshLibrary>().To<TileMeshLibrary>().FromInstance(tileMeshLibrary);
+            Container.Bind<MapCreator>().To<MapCreator>().FromInstance(mapCreator);
+        }
     }
 }

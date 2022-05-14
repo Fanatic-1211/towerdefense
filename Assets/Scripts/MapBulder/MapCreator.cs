@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 namespace Game.Environment.Map
 {
     public class MapCreator : MonoBehaviour
@@ -12,6 +14,11 @@ namespace Game.Environment.Map
         [SerializeField] EditableTile editableTilePrefab;
         EditableTile[,] instantiatedTiles = new EditableTile[0, 0];
 
+
+        private void Start()
+        {
+            LoadMap();
+        }
         public void LoadMap()
         {
             Vector2Int gridSizeFromMapData = mapDataAsset.GetGridSize();
@@ -32,12 +39,19 @@ namespace Game.Environment.Map
                 }
             }
         }
+        public void UpdateTileMesh(string meshName, EditableTile editableTile)
+        {
+            (int, int) index = instantiatedTiles.CoordinatesOf( editableTile);
+            mapDataAsset.TileGridCells[index.Item1, index.Item2].tileMeshName = meshName;
+            Mesh mesh = meshLibrary.GetMeshByString(meshName);
+            editableTile.SetTileMesh(mesh);
+        }
 
         public void RegenerateMap()
         {
             mapDataAsset.CreateTileMap(gridSize);
             LoadMap();
         }
-        
+
     }
 }

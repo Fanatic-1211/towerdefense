@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ namespace Game.Environment.Map
         [SerializeField] Transform targetParent;
         List<TilePanelItem> tilePanelItems = new List<TilePanelItem>();
         [Zenject.Inject] TileMeshLibrary meshLibrary;
+        public event Action<string> OnTilePicked;
+        private string currentPickedTileName;
+        public string CurrentPickedTileName  => currentPickedTileName;
 
         private void Start()
         {
@@ -18,12 +22,13 @@ namespace Game.Environment.Map
             {
                 TilePanelItem tileCard = Instantiate(tilePanelItemPrefab, targetParent);
                 tileCard.SetUp(item.meshName, item.meshPreview);
+                tileCard.OnItemPicked +=() => OnItemPicked(item.meshName);
                 tilePanelItems.Add(tileCard);
             }
         }
         private void OnItemPicked(string name)
         {
-            Debug.Log($"{name} item picked");
+            OnTilePicked?.Invoke(name);
         }
 
     }

@@ -1,2 +1,2 @@
 # TowerDefence
-# My Small pet project
+My Small pet project

@@ -2,18 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 namespace Game.Environment.Map
 {
     public class TilePanelPickContoller : MonoBehaviour
     {
         [SerializeField] TilePanelItem tilePanelItemPrefab;
         [SerializeField] Transform targetParent;
+        [SerializeField] Button button;
         List<TilePanelItem> tilePanelItems = new List<TilePanelItem>();
         [Zenject.Inject] TileMeshLibrary meshLibrary;
         public event Action<string> OnTilePicked;
+        public event Action OnRotation;
         private string currentPickedTileName;
         public string CurrentPickedTileName  => currentPickedTileName;
-
+        private void Awake()
+        {
+            button.onClick.AddListener(RotateTile);
+        }
         private void Start()
         {
             Extensions.DisposeObject(tilePanelItems);
@@ -25,6 +32,10 @@ namespace Game.Environment.Map
                 tileCard.OnItemPicked +=() => OnItemPicked(item.meshName);
                 tilePanelItems.Add(tileCard);
             }
+        }
+        private void RotateTile()
+        {
+            OnRotation?.Invoke();
         }
         private void OnItemPicked(string name)
         {

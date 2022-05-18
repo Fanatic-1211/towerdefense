@@ -9,6 +9,7 @@ public class SMatrix<T> where T : class, new()
 
     public List<Array> arrays = new List<Array>();
     public T this[int x, int y] => arrays[x][y];
+    public T this[Vector2Int vector2Int] => arrays[vector2Int.x][vector2Int.y];
     public SMatrix(Vector2Int size)
     {
         for (int x = 0; x < size.x; x++)
@@ -44,6 +45,22 @@ public static class Extensions
         }
 
         return (-1, -1);
+    }
+    public static Vector2Int CoordinatesOfVector2<T>(this T[,] matrix, T value)
+    {
+        int w = matrix.GetLength(0); // width
+        int h = matrix.GetLength(1); // height
+
+        for (int x = 0; x < w; ++x)
+        {
+            for (int y = 0; y < h; ++y)
+            {
+                if (matrix[x, y].Equals(value))
+                    return new Vector2Int(x, y);
+            }
+        }
+
+        return new Vector2Int(-1, -1);
     }
     public static void DisposeMatrix<T>(T[,] matrix) where T : MonoBehaviour
     {

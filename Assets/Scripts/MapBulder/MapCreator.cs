@@ -21,34 +21,66 @@ namespace Game.Environment.Map
         }
         public void LoadMap()
         {
+            if (!Application.isPlaying)
+            {
+                Debug.Log($"Unity is not playing silly");
+                return;
+            }
             Vector2Int gridSizeFromMapData = mapDataAsset.GetGridSize();
             Vector3 meshSize = editableTilePrefab.ScaledMeshSize;
             float xStart = (meshSize.x * (gridSizeFromMapData.x - 1)) / 2;
             float yStart = (meshSize.z * (gridSizeFromMapData.y - 1)) / 2;
-            Vector3 startPosition = new Vector3(-xStart, 0, -yStart);
+            float tileElevation = 0.1f;
+            Vector3 startPosition = new Vector3(-xStart, tileElevation, -yStart);
             Extensions.DisposeMatrix(instantiatedTiles);
             instantiatedTiles = new EditableTile[gridSizeFromMapData.x, gridSizeFromMapData.y];
             for (int x = 0; x < gridSizeFromMapData.x; x++)
             {
                 for (int y = 0; y < gridSizeFromMapData.y; y++)
                 {
+                    mapDataAsset.TileGridCells[x, y].tileGridPosition =new Vector2Int(x, y);
                     instantiatedTiles[x, y] = Instantiate(editableTilePrefab, startPosition + new Vector3(meshSize.x * x, 0, meshSize.z * y), Quaternion.identity, this.transform);
-                    instantiatedTiles[x, y].SetMaterial(meshLibrary.MainPalette);
-                    Mesh mesh = meshLibrary.GetMeshByString(mapDataAsset.TileGridCells[x, y].tileMeshName);
-                    instantiatedTiles[x, y].SetTileMesh(mesh);
+                    instantiatedTiles[x, y].name = $"{x} {y} {instantiatedTiles[x, y].name} "; 
+                    if (x == 0 && y == 0)
+                    {
+                        Debug.Log("catch");
+                    }
+                    ApplySettingsToTile(instantiatedTiles[x, y], mapDataAsset.TileGridCells[x, y]);
+                   
                 }
             }
         }
         public void UpdateTileMesh(string meshName, EditableTile editableTile)
         {
-            (int, int) index = instantiatedTiles.CoordinatesOf( editableTile);
-            mapDataAsset.TileGridCells[index.Item1, index.Item2].tileMeshName = meshName;
-            Mesh mesh = meshLibrary.GetMeshByString(meshName);
+            Vector2Int index = GetTileIndexByTile(editableTile);
+            mapDataAsset.TileGridCells[index].tileMeshName = meshName;
+            ApplySettingsToTile(editableTile, mapDataAsset.TileGridCells[index]);
+        }
+        public void RotateTile(EditableTile editableTile)
+        {
+            Vector2Int index = GetTileIndexByTile(editableTile);
+            mapDataAsset.TileGridCells[index].TileMeshRotation += 90;
+            ApplySettingsToTile(editableTile, mapDataAsset.TileGridCells[index]);
+        }
+        private void ApplySettingsToTile(EditableTile editableTile, TileMapData tileMapData)
+        {
+            editableTile.SetMaterial(meshLibrary.MainPalette);
+            editableTile.RotateTile(tileMapData.TileMeshRotation);
+            Mesh mesh = meshLibrary.GetMeshByString(tileMapData.tileMeshName);
             editableTile.SetTileMesh(mesh);
+        }
+        private Vector2Int GetTileIndexByTile(EditableTile editableTile)
+        {
+            return instantiatedTiles.CoordinatesOfVector2(editableTile); 
         }
 
         public void RegenerateMap()
         {
+            if (!Application.isPlaying)
+            {
+                Debug.Log($"Unity is not playing silly");
+                return;
+            }
             mapDataAsset.CreateTileMap(gridSize);
             LoadMap();
         }

@@ -12,11 +12,19 @@ namespace Game.Environment.Map
         private void Awake()
         {
             panelPickContoller.OnTilePicked += SetTileData;
+            panelPickContoller.OnRotation += PanelPickContoller_OnRotation;
         }
+
+        private void PanelPickContoller_OnRotation()
+        {
+            mapCreator.RotateTile(tilePicker.PickedTile);
+        }
+
         private void SetTileData(string meshName)
         {
 
             mapCreator.UpdateTileMesh(meshName, tilePicker.PickedTile);
         }
+       
     }
 }

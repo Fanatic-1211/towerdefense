@@ -41,5 +41,5 @@ MonoBehaviour:
     meshName: RoadStraight
     Mesh: {fileID: -2432090755550338912, guid: e618ab8e55a3ed942a408f4d1b7f896e, type: 3}
     tileType: 1
-  fallbackMesh: {fileID: -2432090755550338912, guid: c7b1d47513477a84cb86109bc3cd54d5, type: 3}
+  fallbackMesh: {fileID: -2432090755550338912, guid: e0db00ce7e1dbb748820eceb6102e0a0, type: 3}
   mainPalette: {fileID: -8469494145858465668, guid: 5076ba01f21af0c4daff73ab13dba476, type: 3}

@@ -10,7 +10,8 @@ namespace Game.Environment.Map
     public class TileMapData
     {
         public string tileMeshName = string.Empty;
-        public int tileMeshRotation;
+        [SerializeField] private int tileMeshRotation;
+        public int TileMeshRotation { get => tileMeshRotation; set { tileMeshRotation = value > 360 ? 0 : value; } }
         public Vector2Int tileGridPosition;
         public TileType tileType;
     }

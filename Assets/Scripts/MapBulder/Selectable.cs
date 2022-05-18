@@ -50,7 +50,7 @@ public class Selectable : MonoBehaviour, ISelectable
     public void DeselectTarget()
     {
         if (!isSelected) return;
-        isSelected = true;
+        isSelected = false;
         StopHighlight();
     }
     private IEnumerator HighlightRoutine(int targetMaterialIndex)

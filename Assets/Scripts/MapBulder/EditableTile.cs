@@ -22,6 +22,10 @@ namespace Game.Environment.Map
         {
             meshRenderer.sharedMaterial = material;
         }
+        public void RotateTile(int rotaion)
+        {
+            meshRenderer.transform.localEulerAngles = new Vector3(0, rotaion);
+        }
      
     }
 }

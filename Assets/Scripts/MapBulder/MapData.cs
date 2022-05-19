@@ -21,14 +21,35 @@ namespace Game.Environment.Map
     }
 
     [CreateAssetMenu(fileName = "NewMapData", menuName = "CreateMapData")]
-    public class MapData : ScriptableObject
+    public class MapData : ScriptableObject, IMapData
     {
         [SerializeField] SMatrix<TileMapData> tileMapDatas;
-        public SMatrix<TileMapData> TileGridCells => tileMapDatas;
+        public SMatrix<TileMapData> GetTileGridCells() => tileMapDatas;
         public void CreateTileMap(Vector2Int mapSize)
         {
             tileMapDatas = new SMatrix<TileMapData>(mapSize);
         }
-        public Vector2Int GetGridSize()=> tileMapDatas.MatrixSize;
+        public Vector2Int GetGridSize() => tileMapDatas.MatrixSize;
+    }
+    [System.Serializable]
+    public class MapDataJson : IMapData
+    {
+        [SerializeField] SMatrix<TileMapData> tileMapDatas;
+        public SMatrix<TileMapData> GetTileGridCells() => tileMapDatas;
+        public void CreateTileMap(Vector2Int mapSize)
+        {
+            tileMapDatas = new SMatrix<TileMapData>(mapSize);
+        }
+        public Vector2Int GetGridSize() => tileMapDatas.MatrixSize;
+        public MapDataJson()
+        {
+            CreateTileMap(new Vector2Int(0, 0));
+        }
+    }
+    public interface IMapData
+    {
+        public SMatrix<TileMapData> GetTileGridCells();
+        public void CreateTileMap(Vector2Int mapSize);
+        public Vector2Int GetGridSize();
     }
 }

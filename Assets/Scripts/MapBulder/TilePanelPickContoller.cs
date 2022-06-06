@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Game.Environment.Map
 {
-    public class TilePanelPickContoller : MonoBehaviour
+    public class TilePanelMeshView : MonoBehaviour
     {
         [SerializeField] TilePanelItem tilePanelItemPrefab;
         [SerializeField] Transform targetParent;

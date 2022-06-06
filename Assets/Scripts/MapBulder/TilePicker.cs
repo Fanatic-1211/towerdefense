@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using System;
 namespace Game.Environment.Map
 {
     public class TilePicker : MonoBehaviour
     {
-        private ISelectable currentTargetable;
-        private GameObject pickedGameObject;
-        public EditableTile PickedTile => pickedGameObject.GetComponent<EditableTile>();
+
+        public event Action<ISelectable> OnSelectablePicked;
+        public event Action<ISelectable> OnSelectablePickedWithShift;
         /// <summary>
         /// Cast a ray to test if Input.mousePosition is over any UI object in EventSystem.current. This is a replacement
         /// for IsPointerOverGameObject() which does not work on Android in 4.6.0f3
@@ -34,13 +34,16 @@ namespace Game.Environment.Map
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Physics.Raycast(ray.origin, (ray.direction - Camera.main.transform.position) * 10, out hitInfo);
                 ISelectable tile = hitInfo.collider.gameObject.GetComponent<ISelectable>();
-                if (tile != null && tile != currentTargetable)
+                if (tile != null)
                 {
-                    Debug.Log($"Was hit target {hitInfo.collider.gameObject.name}");
-                    if (currentTargetable != null) currentTargetable.DeselectTarget();
-                    tile.SelectTarget();
-                    currentTargetable = tile;
-                    pickedGameObject = hitInfo.collider.gameObject;
+                    if (Input.GetKeyDown(KeyCode.LeftShift))
+                    {
+                        OnSelectablePickedWithShift?.Invoke(tile);
+                    }
+                    else
+                    {
+                        OnSelectablePicked?.Invoke(tile);
+                    }
                 }
             }
 

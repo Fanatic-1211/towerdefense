@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface ISelectable 
 {
-    public Action<bool> IsSelectedCallback();
+    public Action<bool> TileSelected();
     public void SelectTarget();
     public void DeselectTarget();
 }

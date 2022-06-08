@@ -487,8 +487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350c920491fda034a8472b9fed0824a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializeRootFolder: Assets/Resources
-  mapDataPath: MapData/DevMap.json
 --- !u!224 &421886794 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4023498019948289078, guid: 3a7ed693b52b80b4ab3ebfc5c8dcb6f8, type: 3}
@@ -619,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePicker: {fileID: 549829172}
-  panelPickContoller: {fileID: 1003366035}
+  panelMeshView: {fileID: 1003366035}
 --- !u!114 &549829172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e573e82b851cf449ee0603c8a7d7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePanelItemPrefab: {fileID: 4023498019948289073, guid: 3a7ed693b52b80b4ab3ebfc5c8dcb6f8, type: 3}
+  tilePanelItemPrefab: {fileID: 1759913212}
   targetParent: {fileID: 17632615}
   button: {fileID: 2135268133}
 --- !u!1 &1177262146
@@ -1289,6 +1287,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1759913212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4023498019948289073, guid: 3a7ed693b52b80b4ab3ebfc5c8dcb6f8, type: 3}
+  m_PrefabInstance: {fileID: 4023498019531138940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e37591429cdb34cba1b3f5e98de663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1851730031
 GameObject:
   m_ObjectHideFlags: 0

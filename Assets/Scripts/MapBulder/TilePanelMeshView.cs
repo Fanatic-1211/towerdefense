@@ -30,6 +30,7 @@ namespace Game.Environment.Map
                 TilePanelItem tileCard = Instantiate(tilePanelItemPrefab, targetParent);
                 tileCard.SetUp(item.meshName, item.meshPreview);
                 tileCard.OnItemPicked +=() => OnItemPicked(item.meshName);
+                tileCard.gameObject.SetActive(true);
                 tilePanelItems.Add(tileCard);
             }
         }

@@ -9,9 +9,9 @@ namespace Game.Environment.Map
         [SerializeField] TilePicker tilePicker;
         [SerializeField] TilePanelMeshView panelMeshView;
         [Inject] MapCreator mapCreator;
-        private ISelectable currentTargetable;
+        private List<EditableTile> currentSelectedTargets = new List<EditableTile>();
+        private EditableTile originSelectable;
         private GameObject pickedGameObject;
-        public EditableTile PickedTile => pickedGameObject.GetComponent<EditableTile>();
         private void Awake()
         {
             panelMeshView.OnTilePicked += SetTileData;
@@ -20,36 +20,55 @@ namespace Game.Environment.Map
             tilePicker.OnSelectablePickedWithShift += TilePicker_OnSelectablePickedWithShift;
         }
 
-        private void TilePicker_OnSelectablePickedWithShift(ISelectable obj)
+        private void TilePicker_OnSelectablePickedWithShift(EditableTile obj)
         {
-            throw new System.NotImplementedException();
+          
+            if (originSelectable == null)
+            {
+                TilePicker_OnSelectablePicked(obj);
+            }
+            else
+            {
+                DeselectTargets(currentSelectedTargets);
+                currentSelectedTargets.AddRange(mapCreator.GetTileListByTileCorners(originSelectable, obj));
+                SelectTargets(currentSelectedTargets);
+            }
+
         }
 
-        private void TilePicker_OnSelectablePicked(ISelectable obj)
+        private void TilePicker_OnSelectablePicked(EditableTile obj)
         {
-            throw new System.NotImplementedException();
+            originSelectable = obj;
+            DeselectTargets(currentSelectedTargets);
+            currentSelectedTargets.Add(originSelectable);
+            SelectTargets(currentSelectedTargets);
         }
 
         private void PanelPickContoller_OnRotation()
         {
-            mapCreator.RotateTile(tilePicker.PickedTile);
+            currentSelectedTargets.ForEach(t => mapCreator.RotateTile(t));
         }
 
         private void SetTileData(string meshName)
         {
-            mapCreator.UpdateTileMesh(meshName, tilePicker.PickedTile);
+            currentSelectedTargets.ForEach(t => mapCreator.UpdateTileMesh(meshName, t));
+           
         }
-       
-        public void HighLightTile()
+
+        private void SelectTargets(List<EditableTile> targetList)
         {
-            if (tile != null && tile != currentTargetable)
+            foreach (var item in targetList)
             {
-                Debug.Log($"Was hit target {hitInfo.collider.gameObject.name}");
-                if (currentTargetable != null) currentTargetable.DeselectTarget();
-                tile.SelectTarget();
-                currentTargetable = tile;
-                pickedGameObject = hitInfo.collider.gameObject;
+                item.SelectTarget();
             }
+        }
+        private void DeselectTargets(List<EditableTile> targetList)
+        {
+            foreach (var item in targetList)
+            {
+                item.DeselectTarget();
+            }
+            targetList.Clear();
         }
     }
 }

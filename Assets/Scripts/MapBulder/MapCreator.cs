@@ -78,6 +78,24 @@ namespace Game.Environment.Map
             return instantiatedTiles.CoordinatesOfVector2(editableTile);
         }
 
+        public List<EditableTile> GetTileListByTileCorners(EditableTile editableTile1, EditableTile editableTile2)
+        {
+          
+            Vector2Int index1 = GetTileIndexByTile(editableTile1);
+            Vector2Int index2 = GetTileIndexByTile(editableTile2);
+            Vector2Int startIndex = new Vector2Int(Mathf.Min(index1.x, index2.x), Mathf.Min(index1.y, index2.y));
+            Vector2Int endIndex = new Vector2Int(Mathf.Max(index1.x, index2.x), Mathf.Max(index1.y, index2.y));
+            List<EditableTile> outputList = new List<EditableTile>();
+            for (int x = startIndex.x; x <= endIndex.x; x++)
+            {
+                for (int y = startIndex.y; y <= endIndex.y; y++)
+                {
+                    outputList.Add(instantiatedTiles[x, y]);
+                }
+            }
+            return outputList;
+        }
+
         public void RegenerateMap()
         {
             if (!Application.isPlaying)

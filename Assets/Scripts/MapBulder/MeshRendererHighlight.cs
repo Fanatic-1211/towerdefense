@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Selectable : MonoBehaviour, ISelectable
+public class MeshRendererHighlight : MonoBehaviour
 {
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] Material highLightMaterial;
-    Action<bool> ISelectable.IsSelectedCallback() => isSelectedCallBack;
     private event Action<bool> isSelectedCallBack;
     int highlightMaterialIndex = -1;
     bool isSelected = false;

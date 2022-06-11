@@ -4,7 +4,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 0,
@@ -13,7 +13,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 0,
@@ -22,7 +22,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 0,
@@ -31,7 +31,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 0,
@@ -98,7 +98,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 1,
@@ -107,7 +107,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 1,
@@ -116,7 +116,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 1,
@@ -125,198 +125,10 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 1,
-                            "y": 3
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 90,
-                        "tileGridPosition": {
-                            "x": 1,
-                            "y": 4
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 90,
-                        "tileGridPosition": {
-                            "x": 1,
-                            "y": 5
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 90,
-                        "tileGridPosition": {
-                            "x": 1,
-                            "y": 6
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 1,
-                            "y": 7
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 1,
-                            "y": 8
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 1,
-                            "y": 9
-                        },
-                        "tileType": 0
-                    }
-                ]
-            },
-            {
-                "cells": [
-                    {
-                        "tileMeshName": "",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 0
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 1
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 2
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 3
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 90,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 4
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 90,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 5
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 90,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 6
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 7
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 8
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 2,
-                            "y": 9
-                        },
-                        "tileType": 0
-                    }
-                ]
-            },
-            {
-                "cells": [
-                    {
-                        "tileMeshName": "",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 3,
-                            "y": 0
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 3,
-                            "y": 1
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 3,
-                            "y": 2
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 3,
                             "y": 3
                         },
                         "tileType": 0
@@ -325,7 +137,7 @@
                         "tileMeshName": "WaterOpen",
                         "tileMeshRotation": 90,
                         "tileGridPosition": {
-                            "x": 3,
+                            "x": 1,
                             "y": 4
                         },
                         "tileType": 0
@@ -334,16 +146,16 @@
                         "tileMeshName": "WaterOpen",
                         "tileMeshRotation": 90,
                         "tileGridPosition": {
-                            "x": 3,
+                            "x": 1,
                             "y": 5
                         },
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "WaterOpen",
                         "tileMeshRotation": 90,
                         "tileGridPosition": {
-                            "x": 3,
+                            "x": 1,
                             "y": 6
                         },
                         "tileType": 0
@@ -352,7 +164,7 @@
                         "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
-                            "x": 3,
+                            "x": 1,
                             "y": 7
                         },
                         "tileType": 0
@@ -361,13 +173,201 @@
                         "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
-                            "x": 3,
+                            "x": 1,
                             "y": 8
                         },
                         "tileType": 0
                     },
                     {
                         "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 1,
+                            "y": 9
+                        },
+                        "tileType": 0
+                    }
+                ]
+            },
+            {
+                "cells": [
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 0
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 2
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 3
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 4
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 5
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 6
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 7
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 8
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 2,
+                            "y": 9
+                        },
+                        "tileType": 0
+                    }
+                ]
+            },
+            {
+                "cells": [
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 0
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 2
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "RoadCorner",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 3
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 4
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 5
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 6
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "LakeOuterCorner",
+                        "tileMeshRotation": 360,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 7
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 3,
+                            "y": 8
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 3,
@@ -380,7 +380,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 4,
@@ -389,7 +389,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 4,
@@ -398,7 +398,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 4,
@@ -407,7 +407,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 4,
@@ -434,205 +434,205 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 4,
-                            "y": 6
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 4,
-                            "y": 7
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 4,
-                            "y": 8
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 4,
-                            "y": 9
-                        },
-                        "tileType": 0
-                    }
-                ]
-            },
-            {
-                "cells": [
-                    {
-                        "tileMeshName": "",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 0
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 1
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 2
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 3
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 4
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 5
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 6
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 7
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 8
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 5,
-                            "y": 9
-                        },
-                        "tileType": 0
-                    }
-                ]
-            },
-            {
-                "cells": [
-                    {
-                        "tileMeshName": "",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 0
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 1
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 2
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 3
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 4
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 5
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
-                        "tileGridPosition": {
-                            "x": 6,
-                            "y": 6
-                        },
-                        "tileType": 0
-                    },
-                    {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "WaterOpen",
                         "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 4,
+                            "y": 6
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 180,
+                        "tileGridPosition": {
+                            "x": 4,
+                            "y": 7
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 4,
+                            "y": 8
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 4,
+                            "y": 9
+                        },
+                        "tileType": 0
+                    }
+                ]
+            },
+            {
+                "cells": [
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 0
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 1
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 2
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 360,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 3
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "WaterOpen",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 4
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "WaterOpen",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 5
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "WaterOpen",
+                        "tileMeshRotation": 90,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 6
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 180,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 7
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 8
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 5,
+                            "y": 9
+                        },
+                        "tileType": 0
+                    }
+                ]
+            },
+            {
+                "cells": [
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 0
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 1
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "Grass",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 2
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 3
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "WaterOpen",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 4
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "WaterOpen",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 5
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "WaterOpen",
+                        "tileMeshRotation": 0,
+                        "tileGridPosition": {
+                            "x": 6,
+                            "y": 6
+                        },
+                        "tileType": 0
+                    },
+                    {
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 180,
                         "tileGridPosition": {
                             "x": 6,
                             "y": 7
@@ -662,7 +662,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 7,
@@ -690,7 +690,7 @@
                     },
                     {
                         "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
+                        "tileMeshRotation": 90,
                         "tileGridPosition": {
                             "x": 7,
                             "y": 3
@@ -698,8 +698,8 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 270,
                         "tileGridPosition": {
                             "x": 7,
                             "y": 4
@@ -707,8 +707,8 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 270,
                         "tileGridPosition": {
                             "x": 7,
                             "y": 5
@@ -716,8 +716,8 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
+                        "tileMeshName": "ShoreLine",
+                        "tileMeshRotation": 270,
                         "tileGridPosition": {
                             "x": 7,
                             "y": 6
@@ -726,7 +726,7 @@
                     },
                     {
                         "tileMeshName": "Grass",
-                        "tileMeshRotation": 0,
+                        "tileMeshRotation": 180,
                         "tileGridPosition": {
                             "x": 7,
                             "y": 7
@@ -756,7 +756,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -765,7 +765,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -774,7 +774,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -783,7 +783,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -792,7 +792,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -810,7 +810,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -819,7 +819,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -828,7 +828,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -837,7 +837,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 8,
@@ -850,7 +850,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -859,7 +859,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -868,7 +868,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -877,7 +877,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -886,7 +886,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -895,7 +895,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -913,7 +913,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -922,7 +922,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -931,7 +931,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 9,
@@ -944,7 +944,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -953,7 +953,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -962,7 +962,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -971,7 +971,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -980,7 +980,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -989,7 +989,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -998,7 +998,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -1007,7 +1007,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -1016,7 +1016,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -1025,7 +1025,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "RoadCorner",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 10,
@@ -1038,7 +1038,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1047,7 +1047,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1056,7 +1056,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1065,7 +1065,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1074,7 +1074,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1083,7 +1083,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "ShoreLine",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1092,7 +1092,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1101,7 +1101,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1110,7 +1110,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1119,7 +1119,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 11,
@@ -1132,7 +1132,7 @@
             {
                 "cells": [
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1141,7 +1141,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1150,7 +1150,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1159,7 +1159,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1168,7 +1168,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1177,7 +1177,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1186,7 +1186,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1195,7 +1195,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1204,7 +1204,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,
@@ -1213,7 +1213,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "",
+                        "tileMeshName": "Grass",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 12,

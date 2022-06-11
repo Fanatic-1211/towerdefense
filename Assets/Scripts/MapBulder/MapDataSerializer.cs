@@ -16,6 +16,7 @@ namespace Game.Environment.Map
             if (mapData == null)
             {
                 mapData = DeserializeMap();
+              Debug.Log(mapData.GetTileGridCells()[0, 0].tileMeshName);
             }
             return mapData;
         }
@@ -25,12 +26,13 @@ namespace Game.Environment.Map
         }
         private MapDataJson DeserializeMap()
         {
+            Debug.Log("Map deserialized");
             MapDataJson myObject = null;
             try
             {
-
                 Debug.Log($"Deserializing obj from {mapDataPath}");
                 TextAsset textFile = Resources.Load(mapDataPath.Replace(".json","")) as TextAsset;
+                Debug.Log(textFile);
                 myObject = JsonUtility.FromJson<MapDataJson>(textFile.text);
             }
             catch (Exception exc)

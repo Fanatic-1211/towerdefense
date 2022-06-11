@@ -20,6 +20,7 @@ namespace Game.Environment.Map
         }
         private void OnApplicationQuit()
         {
+            Debug.Log("Map was saved");
             mapDataSerializer.SerializeMap();
         }
         private void Start()

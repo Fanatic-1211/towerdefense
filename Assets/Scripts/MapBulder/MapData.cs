@@ -23,7 +23,7 @@ namespace Game.Environment.Map
     [CreateAssetMenu(fileName = "NewMapData", menuName = "CreateMapData")]
     public class MapData : ScriptableObject, IMapData
     {
-        [SerializeField] SMatrix<TileMapData> tileMapDatas;
+        SMatrix<TileMapData> tileMapDatas;
         public SMatrix<TileMapData> GetTileGridCells() => tileMapDatas;
         public void CreateTileMap(Vector2Int mapSize)
         {

@@ -12,14 +12,14 @@ namespace Game.Environment.Tile
             { TileType.spawn,Color.white},
             { TileType.path,Color.yellow},
             { TileType.placeable,Color.green},
-             { TileType.locked,Color.magenta}
+            { TileType.locked,Color.magenta}
 
         };
         public TileType TileType => tileType;
         [SerializeField] TileType tileType;
         [SerializeField] SpriteRenderer addRenderer;
         [SerializeField] MeshFilter meshFilter;
-        public void SetMeshView(Mesh mesh,float rotation)
+        public void SetMeshView(Mesh mesh, float rotation)
         {
             meshFilter.mesh = mesh;
             meshFilter.transform.localEulerAngles = new Vector3(0, rotation);

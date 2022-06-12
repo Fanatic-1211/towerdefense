@@ -5,35 +5,36 @@ using System.IO;
 using UnityEngine;
 namespace Game.Environment.Map
 {
-    public class MapDataSerializer : MonoBehaviour
+    public class MapDataJsonSerializer : MapDataSerializerBase
     {
         //  [SerializeField] TextAsset textAsset;
         string serializeRootFolder = "Assets\\Resources";
         string mapDataPath = "MapData\\DevMap.json";
         MapDataJson mapData;
-        public IMapData GetMapData()
+        public override IMapData GetMapData()
         {
             if (mapData == null)
             {
                 mapData = DeserializeMap();
-              Debug.Log(mapData.GetTileGridCells()[0, 0].tileMeshName);
+                Debug.Log(mapData.GetTileGridCells()[0, 0].tileMeshName);
             }
             return mapData;
         }
-        public void SerializeMap()
+
+        public override void SerializeMap()
         {
             SerializeMapData(mapData);
         }
+
         private MapDataJson DeserializeMap()
         {
             Debug.Log("Map deserialized");
             MapDataJson myObject = null;
             try
             {
-                Debug.Log($"Deserializing obj from {mapDataPath}");
-                TextAsset textFile = Resources.Load(mapDataPath.Replace(".json","")) as TextAsset;
-                Debug.Log(textFile);
-                myObject = JsonUtility.FromJson<MapDataJson>(textFile.text);
+                string fullPath = Path.Combine(serializeRootFolder, mapDataPath);
+                StreamReader streamReader = new StreamReader(fullPath);
+                myObject = JsonUtility.FromJson<MapDataJson>(streamReader.ReadToEnd());
             }
             catch (Exception exc)
             {
@@ -52,12 +53,16 @@ namespace Game.Environment.Map
             }
             try
             {
+
                 string fullPath = Path.Combine(serializeRootFolder, mapDataPath);
                 Debug.Log($"Serializing obj to {fullPath}");
                 string json = JsonUtility.ToJson(_mapData, true);
-                StreamWriter writer = new StreamWriter(fullPath, false);
+                using StreamWriter writer = new StreamWriter(fullPath, false);
+                writer.AutoFlush = true;
+                Debug.Log(json);
                 writer.Write(json);
                 writer.Close();
+                writer.Dispose();
             }
             catch (Exception exc)
             {
@@ -65,6 +70,6 @@ namespace Game.Environment.Map
             }
 
         }
-    }//Load a text file (Assets/Resources/Text/textFile01.txt)
+    }
 
 }

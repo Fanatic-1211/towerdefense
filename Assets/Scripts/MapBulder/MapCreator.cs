@@ -9,7 +9,7 @@ namespace Game.Environment.Map
     public class MapCreator : MonoBehaviour
     {
         [SerializeField] Vector2Int gridSize = new Vector2Int(10, 10);
-        [SerializeField] MapDataSerializer mapDataSerializer;
+        [SerializeField] MapDataJsonSerializer mapDataSerializer;
         IMapData iMapDataAsset;
         [Zenject.Inject] TileMeshLibrary meshLibrary;
         [SerializeField] EditableTile editableTilePrefab;

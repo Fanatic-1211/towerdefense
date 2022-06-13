@@ -17,7 +17,7 @@ namespace Game.Environment.Map
             panelMeshView.OnTilePicked += SetTileData;
             panelMeshView.OnRotation += PanelPickContoller_OnRotation;
             tilePicker.OnSelectablePicked += TilePicker_OnSelectablePicked;
-            tilePicker.OnSelectablePickedWithShift += TilePicker_OnSelectablePickedWithShift;
+            tilePicker.OnSelectableMultiplePicked += TilePicker_OnSelectablePickedWithShift;
         }
 
         private void TilePicker_OnSelectablePickedWithShift(EditableTile obj)

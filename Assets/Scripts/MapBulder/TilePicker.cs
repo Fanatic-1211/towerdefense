@@ -3,13 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.InputSystem;
+
 namespace Game.Environment.Map
 {
     public class TilePicker : MonoBehaviour
     {
-
+        private PlayerInputControlls playerInputAction;
         public event Action<EditableTile> OnSelectablePicked;
-        public event Action<EditableTile> OnSelectablePickedWithShift;
+        public event Action<EditableTile> OnSelectableMultiplePicked;
+
+        private void Awake()
+        {
+            playerInputAction = new PlayerInputControlls();
+            playerInputAction.Player.Enable();
+            playerInputAction.Player.Pick.performed += Pick_performed;
+            playerInputAction.Player.PickMultiple.performed += PickMultiple_performed;
+        }
+
+        private void PickMultiple_performed(InputAction.CallbackContext obj)
+        {
+            if (IsPointerOverUIObject()) return;
+           
+            EditableTile pickedTile = FindTileByRaycast();
+            if (pickedTile != null)
+            {
+                OnSelectableMultiplePicked?.Invoke(pickedTile);
+            }
+        }
+
+        private void Pick_performed(InputAction.CallbackContext obj)
+        {
+            if (IsPointerOverUIObject()) return;
+            EditableTile pickedTile = FindTileByRaycast();
+            if (pickedTile != null)
+            {
+                OnSelectablePicked?.Invoke(pickedTile);
+            }
+        }
+        private EditableTile FindTileByRaycast()
+        {
+            RaycastHit hitInfo;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(ray.origin, (ray.direction - Camera.main.transform.position) * 10, out hitInfo);
+            return hitInfo.collider.gameObject.GetComponent<EditableTile>();
+
+        }
+
         /// <summary>
         /// Cast a ray to test if Input.mousePosition is over any UI object in EventSystem.current. This is a replacement
         /// for IsPointerOverGameObject() which does not work on Android in 4.6.0f3
@@ -25,42 +65,6 @@ namespace Game.Environment.Map
             EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
             return results.Count > 0;
         }
-        private void Update()
-        {
-            if (IsPointerOverUIObject()) return;
-            if (Input.GetMouseButtonDown(0))
-            {
-                RaycastHit hitInfo;
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Physics.Raycast(ray.origin, (ray.direction - Camera.main.transform.position) * 10, out hitInfo);
-                EditableTile tile = hitInfo.collider.gameObject.GetComponent<EditableTile>();
-                if (tile != null)
-                {
-                    if (Input.GetKey(KeyCode.LeftShift))
-                    {
-                        OnSelectablePickedWithShift?.Invoke(tile);
-                    }
-                    else
-                    {
-                        OnSelectablePicked?.Invoke(tile);
-                    }
-                }
-            }
-
-            /*
-            Debug.DrawRay(transform.position, Vector3.down * 100f, Color.red);
-            ITowerPlaceable newTile = null;
-            if (Physics.Raycast(this.transform.position, Vector3.down, out hit, 1000f, draggableIgnore))
-                newTile = hit.collider.gameObject.GetComponent<ITowerPlaceable>();
-            if (newTile != currentTile)
-            {
-                if (currentTile != null) LeaveTile(currentTile);
-                if (newTile != null) EnterTile(newTile);
-                currentTile = newTile;
-            }
-            if (Input.GetMouseButtonUp(0)) OnDragEnded?.Invoke(currentTile);
-            transform.position = FindPanelByRaycast();
-            */
-        }
+      
     }
 }

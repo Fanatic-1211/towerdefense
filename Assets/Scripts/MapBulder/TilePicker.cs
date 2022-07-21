@@ -9,17 +9,10 @@ namespace Game.Environment.Map
 {
     public class TilePicker : MonoBehaviour
     {
-        private PlayerInputControlls playerInputAction;
+     
         public event Action<EditableTile> OnSelectablePicked;
         public event Action<EditableTile> OnSelectableMultiplePicked;
-
-        private void Awake()
-        {
-            playerInputAction = new PlayerInputControlls();
-            playerInputAction.Player.Enable();
-            playerInputAction.Player.Pick.performed += Pick_performed;
-            playerInputAction.Player.PickMultiple.performed += PickMultiple_performed;
-        }
+       
 
         private void PickMultiple_performed(InputAction.CallbackContext obj)
         {

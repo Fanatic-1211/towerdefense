@@ -9,7 +9,8 @@ namespace Game.GameSystem.CameraControll
     public class CameraController : MonoBehaviour ,IMouse
     {
         private Camera thisCamera;
-
+        Mouse mouse = Mouse.current;
+      //  Vector2 totalDrag = Vector2.zero;
         public void OnMouseDown(InputAction.CallbackContext context)
         {
           //  throw new System.NotImplementedException();
@@ -17,8 +18,12 @@ namespace Game.GameSystem.CameraControll
 
         public void OnMouseDrag(InputAction.CallbackContext context)
         {
-            Vector2 delta = -context.ReadValue<Vector2>();
-            thisCamera.transform.position += new  Vector3(delta.x,0,delta.y);
+            Vector2 totalDrag =-context.ReadValue<Vector2>();
+            totalDrag += new Vector2(thisCamera.pixelWidth, thisCamera.pixelHeight) / 2;
+            Vector3 toPoint = thisCamera.ScreenToWorldPoint(totalDrag);
+           
+            Debug.Log($"Delta was {totalDrag} to point was  {toPoint}");
+            thisCamera.transform.position = toPoint;
         }
 
         public void OnMouseUp(InputAction.CallbackContext context)

@@ -836,12 +836,12 @@ public partial class @MainInputAction : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""TouchDeltaMove"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""434e3209-0204-45b3-aa37-99437468c324"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [

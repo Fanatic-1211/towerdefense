@@ -6,24 +6,28 @@ using UnityEngine.InputSystem;
 
 namespace Game.GameSystem.CameraControll
 {
-    public class CameraController : MonoBehaviour ,IMouse
+    public class CameraAddon : MonoBehaviour ,IMouse
     {
         private Camera thisCamera;
         Mouse mouse = Mouse.current;
-      //  Vector2 totalDrag = Vector2.zero;
+       
+        public Vector3 FromCameraToScreenPosition(Vector2 delta)
+        {
+            Vector2 totalDrag = delta;
+            totalDrag += new Vector2(thisCamera.pixelWidth, thisCamera.pixelHeight) / 2;
+            Vector3 toPoint = thisCamera.ScreenToWorldPoint(totalDrag);
+            
+            return toPoint;
+        }
         public void OnMouseDown(InputAction.CallbackContext context)
         {
           //  throw new System.NotImplementedException();
         }
 
-        public void OnMouseDrag(InputAction.CallbackContext context)
+        public void OnMouseDrag(Vector2 delta)
         {
-            Vector2 totalDrag =-context.ReadValue<Vector2>();
-            totalDrag += new Vector2(thisCamera.pixelWidth, thisCamera.pixelHeight) / 2;
-            Vector3 toPoint = thisCamera.ScreenToWorldPoint(totalDrag);
-           
-            Debug.Log($"Delta was {totalDrag} to point was  {toPoint}");
-            thisCamera.transform.position = toPoint;
+            
+            thisCamera.transform.position = FromCameraToScreenPosition(-delta);
         }
 
         public void OnMouseUp(InputAction.CallbackContext context)

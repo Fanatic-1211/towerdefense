@@ -15,9 +15,12 @@ namespace Game.GameSystem.Input
         public event Action<Vector2> OnPrimaryTouchPressed;
         public event Action<Vector2> OnHoldTouchPresed;
         private DoubleClickAddon doubleClickAddon;
-        [SerializeField] CameraController cameraController;
+        private event Action<Vector2> OnDragInActionScreenCoordinates;
+        private event Action<Vector2> OnDragInActionWorldCoordinates;
+        [SerializeField] CameraAddon cameraController;
         IMouse defautDraggable => cameraController;
         IMouse currentDragger;
+        Vector2 pastPointerValue = Vector2.zero;
         private void Awake()
         {
             doubleClickAddon = GetComponent<DoubleClickAddon>();
@@ -26,7 +29,8 @@ namespace Game.GameSystem.Input
             inputAction.TouchInput.PrimaryContact.performed += OnClickStarted;
             inputAction.TouchInput.PrimaryContact.canceled += OnClickCanceled;
             inputAction.TouchInput.LongPress.performed += OnHoldPress;
-            inputAction.TouchInput.TouchDeltaMove.performed += TouchDeltaMove_performed;
+          //  inputAction.TouchInput.TouchDeltaMove.performed += TouchDeltaMove_performed;
+            pastPointerValue = inputAction.TouchInput.PrimaryPosition.ReadValue<Vector2>();
         }
          
         private void TouchDeltaMove_performed(CallbackContext obj)
@@ -59,7 +63,7 @@ namespace Game.GameSystem.Input
                     }
 
                     currentDragger.OnMouseDown(context);
-                    inputAction.TouchInput.TouchDeltaMove.performed += currentDragger.OnMouseDrag;
+                    OnDragInActionScreenCoordinates += currentDragger.OnMouseDrag;
 
                     break;
 
@@ -80,12 +84,22 @@ namespace Game.GameSystem.Input
         }
         public void OnClickCanceled(InputAction.CallbackContext context)
         {
-            inputAction.TouchInput.TouchDeltaMove.performed -= currentDragger.OnMouseDrag;
+            OnDragInActionScreenCoordinates -= currentDragger.OnMouseDrag;
             currentDragger.OnMouseUp(context);
         }
-     
-     
 
+
+        private void Update()
+        {
+            // idnno why but input system drag have some sensitivity issues .... or i stoooped
+            // this will be fine by now
+           // TouchDeltaMove_performed();
+            Vector2 currentPosition = inputAction.TouchInput.PrimaryPosition.ReadValue<Vector2>(); 
+            Vector2 delta = currentPosition- pastPointerValue; 
+            OnDragInActionScreenCoordinates?.Invoke(delta);
+            pastPointerValue = currentPosition;
+            Debug.Log($"DeltaValue {delta}");
+        }
         private void OnHoldPress(CallbackContext callbackContext)
         {
            // Debug.Log("Hoid");

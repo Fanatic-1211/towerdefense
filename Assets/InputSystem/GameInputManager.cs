@@ -15,11 +15,15 @@ namespace Game.GameSystem.Input
         public event Action<Vector2> OnPrimaryTouchPressed;
         public event Action<Vector2> OnHoldTouchPresed;
         private DoubleClickAddon doubleClickAddon;
-        private event Action<Vector2> OnDragInActionScreenCoordinates;
+        private event Action<Vector2> OnDragInPerformingScreenCoordinates;
         private event Action<Vector2> OnDragInActionWorldCoordinates;
+        private bool applicationWasUnfocusedOrStarted = true;
+        private bool onEdgeOfScreen = false;
+        private float distanceFromEdge = 5f;
         [SerializeField] CameraAddon cameraController;
         IMouse defautDraggable => cameraController;
         IMouse currentDragger;
+        IOnEdgeOfScreenDragging onEdgeOfScreenListerner => cameraController;
         Vector2 pastPointerValue = Vector2.zero;
         private void Awake()
         {
@@ -29,14 +33,20 @@ namespace Game.GameSystem.Input
             inputAction.TouchInput.PrimaryContact.performed += OnClickStarted;
             inputAction.TouchInput.PrimaryContact.canceled += OnClickCanceled;
             inputAction.TouchInput.LongPress.performed += OnHoldPress;
-          //  inputAction.TouchInput.TouchDeltaMove.performed += TouchDeltaMove_performed;
+            //  inputAction.TouchInput.TouchDeltaMove.performed += TouchDeltaMove_performed;
             pastPointerValue = inputAction.TouchInput.PrimaryPosition.ReadValue<Vector2>();
+            applicationWasUnfocusedOrStarted = true;
         }
-         
+        private void OnApplicationFocus(bool focus)
+        {
+            Debug.Log($"Is focused {focus}");
+            if (focus) applicationWasUnfocusedOrStarted = true;
+        }
+
         private void TouchDeltaMove_performed(CallbackContext obj)
         {
             doubleClickAddon.OnDeltaMove(obj.ReadValue<Vector2>());
-         
+
         }
 
         public void OnClickStarted(InputAction.CallbackContext context)
@@ -62,8 +72,8 @@ namespace Game.GameSystem.Input
                         }
                     }
 
-                    currentDragger.OnMouseDown(context);
-                    OnDragInActionScreenCoordinates += currentDragger.OnMouseDrag;
+                    currentDragger.OnInputMouseDown(context);
+                    OnDragInPerformingScreenCoordinates += currentDragger.OnInputMouseDrag;
 
                     break;
 
@@ -84,8 +94,8 @@ namespace Game.GameSystem.Input
         }
         public void OnClickCanceled(InputAction.CallbackContext context)
         {
-            OnDragInActionScreenCoordinates -= currentDragger.OnMouseDrag;
-            currentDragger.OnMouseUp(context);
+            OnDragInPerformingScreenCoordinates -= currentDragger.OnInputMouseDrag;
+            currentDragger.OnInputMouseUp(context);
         }
 
 
@@ -93,16 +103,34 @@ namespace Game.GameSystem.Input
         {
             // idnno why but input system drag have some sensitivity issues .... or i stoooped
             // this will be fine by now
-           // TouchDeltaMove_performed();
-            Vector2 currentPosition = inputAction.TouchInput.PrimaryPosition.ReadValue<Vector2>(); 
-            Vector2 delta = currentPosition- pastPointerValue; 
-            OnDragInActionScreenCoordinates?.Invoke(delta);
+            // TouchDeltaMove_performed();
+            Vector2 currentPosition = inputAction.TouchInput.PrimaryPosition.ReadValue<Vector2>();
+            Vector2 screenSize = new Vector2(Screen.width, Screen.height);
+            if (!applicationWasUnfocusedOrStarted)
+            {
+                Vector2 delta = currentPosition - pastPointerValue;
+                OnDragInPerformingScreenCoordinates?.Invoke(delta);
+            }
             pastPointerValue = currentPosition;
-            Debug.Log($"DeltaValue {delta}");
+            applicationWasUnfocusedOrStarted = false;
+            Vector2 onScreenEdge = Vector2.zero;
+            if (currentPosition.y >screenSize.y - distanceFromEdge)
+                onScreenEdge += Vector2.up;
+            else if (currentPosition.y - distanceFromEdge < 0)
+                onScreenEdge += Vector2.down;
+            if (currentPosition.x > screenSize.x - distanceFromEdge)
+                onScreenEdge += Vector2.right;
+            else if (currentPosition.x - distanceFromEdge < 0)
+                onScreenEdge += Vector2.left;
+            if (onScreenEdge != Vector2.zero)
+            {
+                onEdgeOfScreenListerner?.CursorOnEdgeOfScreen(onScreenEdge);
+                Debug.Log($"OnscreenEdge {onScreenEdge} {currentPosition} {screenSize}");
+            }
         }
         private void OnHoldPress(CallbackContext callbackContext)
         {
-           // Debug.Log("Hoid");
+            // Debug.Log("Hoid");
         }
 
 

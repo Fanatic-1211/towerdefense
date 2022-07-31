@@ -6,11 +6,20 @@ using UnityEngine.InputSystem;
 
 namespace Game.GameSystem.CameraControll
 {
-    public class CameraAddon : MonoBehaviour ,IMouse
+    public class CameraAddon : MonoBehaviour ,IMouse, IOnEdgeOfScreenDragging
     {
         private Camera thisCamera;
         Mouse mouse = Mouse.current;
-       
+        private float scrollSpeed=50f;
+        private bool onDraggingInAction = false;
+        public void CursorOnEdgeOfScreen(Vector2 edgeVector)
+        {
+            if(!onDraggingInAction)
+            thisCamera.transform.position += new Vector3(edgeVector.x, 0, edgeVector.y) * Time.deltaTime* scrollSpeed;
+        }
+
+    
+
         public Vector3 FromCameraToScreenPosition(Vector2 delta)
         {
             Vector2 totalDrag = delta;
@@ -19,20 +28,21 @@ namespace Game.GameSystem.CameraControll
             
             return toPoint;
         }
-        public void OnMouseDown(InputAction.CallbackContext context)
+        public void OnInputMouseDown(InputAction.CallbackContext context)
         {
-          //  throw new System.NotImplementedException();
+            onDraggingInAction = true;
         }
 
-        public void OnMouseDrag(Vector2 delta)
+        public void OnInputMouseDrag(Vector2 delta)
         {
-            
-            thisCamera.transform.position = FromCameraToScreenPosition(-delta);
+            Vector3 targetPosition = FromCameraToScreenPosition(-delta);
+            targetPosition.y = thisCamera.transform.position.y;
+            thisCamera.transform.position= targetPosition;
         }
 
-        public void OnMouseUp(InputAction.CallbackContext context)
+        public void OnInputMouseUp(InputAction.CallbackContext context)
         {
-           // throw new System.NotImplementedException();
+            onDraggingInAction = false;
         }
 
         private void Awake()

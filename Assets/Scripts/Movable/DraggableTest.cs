@@ -12,22 +12,23 @@ namespace Game.GameSystem.Input
         {
             currentCamera = Camera.main;
         }
-        public void OnMouseDown(InputAction.CallbackContext context)
+        public void OnInputMouseDown(InputAction.CallbackContext context)
         {
             
         }
 
-        public void OnMouseDrag(Vector2 context)
+        public void OnInputMouseDrag(Vector2 context)
         {
 
             Vector2 totalDrag = context;
             totalDrag += new Vector2(currentCamera.pixelWidth, currentCamera.pixelHeight) / 2;
             Vector3 toPoint = currentCamera.ScreenToWorldPoint(totalDrag);
-            
+            Debug.Log($"To point value {toPoint} ");
+            toPoint -= currentCamera.transform.position;
             this.transform.position += toPoint;
         }
 
-        public void OnMouseUp(InputAction.CallbackContext context)
+        public void OnInputMouseUp(InputAction.CallbackContext context)
         {
           
         }

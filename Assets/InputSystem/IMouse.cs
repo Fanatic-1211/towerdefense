@@ -6,7 +6,7 @@ namespace Game.GameSystem.Input
     public interface IMouse
     {
         void OnInputMouseDown(InputAction.CallbackContext context);
-        void OnInputMouseDrag(Vector2 delta);
+        void OnInputMouseDragScreenCoordinates(Vector3 delta);
         void OnInputMouseUp(InputAction.CallbackContext context);
     }
 }

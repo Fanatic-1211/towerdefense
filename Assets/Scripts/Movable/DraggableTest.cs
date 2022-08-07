@@ -17,15 +17,9 @@ namespace Game.GameSystem.Input
             
         }
 
-        public void OnInputMouseDrag(Vector2 context)
+        public void OnInputMouseDragScreenCoordinates(Vector3 context)
         {
-
-            Vector2 totalDrag = context;
-            totalDrag += new Vector2(currentCamera.pixelWidth, currentCamera.pixelHeight) / 2;
-            Vector3 toPoint = currentCamera.ScreenToWorldPoint(totalDrag);
-            Debug.Log($"To point value {toPoint} ");
-            toPoint -= currentCamera.transform.position;
-            this.transform.position += toPoint;
+            this.transform.position += context;
         }
 
         public void OnInputMouseUp(InputAction.CallbackContext context)

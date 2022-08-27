@@ -74,7 +74,7 @@ namespace Game.GameSystem.Input
 
                     if (Physics.Raycast(
                             Camera.main.ScreenPointToRay(
-                                Mouse.current.position.ReadValue()),
+                               inputAction.TouchInput.PrimaryPosition.ReadValue<Vector2>()),
                             out hit))
                     {
                         IMouse dragger = hit.collider.gameObject.GetComponent<IMouse>();
@@ -86,7 +86,7 @@ namespace Game.GameSystem.Input
                     }
 
                     currentDragger.OnInputMouseDown(context);
-                    OnDragInPerformingWorldCoordinates += currentDragger.OnInputMouseDragScreenCoordinates;
+                    OnDragInPerformingWorldCoordinates += currentDragger.OnInputMouseDragWorldCoordinates;
 
                     break;
 
@@ -107,7 +107,7 @@ namespace Game.GameSystem.Input
         }
         public void OnClickCanceled(InputAction.CallbackContext context)
         {
-            OnDragInPerformingWorldCoordinates -= currentDragger.OnInputMouseDragScreenCoordinates;
+            OnDragInPerformingWorldCoordinates -= currentDragger.OnInputMouseDragWorldCoordinates;
             currentDragger.OnInputMouseUp(context);
         }
 

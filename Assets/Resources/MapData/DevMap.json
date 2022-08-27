@@ -313,7 +313,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "ShoreLine",
+                        "tileMeshName": "Shore",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 3,
@@ -331,7 +331,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "ShoreLine",
+                        "tileMeshName": "Shore",
                         "tileMeshRotation": 270,
                         "tileGridPosition": {
                             "x": 3,
@@ -398,7 +398,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "Grass",
+                        "tileMeshName": "Shore",
                         "tileMeshRotation": 0,
                         "tileGridPosition": {
                             "x": 4,
@@ -604,7 +604,7 @@
                         "tileType": 0
                     },
                     {
-                        "tileMeshName": "ShoreLine",
+                        "tileMeshName": "Shore",
                         "tileMeshRotation": 180,
                         "tileGridPosition": {
                             "x": 6,

@@ -17,7 +17,7 @@ namespace Game.GameSystem.Input
             
         }
 
-        public void OnInputMouseDragScreenCoordinates(Vector3 context)
+        public void OnInputMouseDragWorldCoordinates(Vector3 context)
         {
             this.transform.position += context;
         }

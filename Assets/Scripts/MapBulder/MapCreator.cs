@@ -55,6 +55,13 @@ namespace Game.Environment.Map
                 }
             }
         }
+        public void UpdateTileMesh(string meshName, ISelectable editableTile)
+        {
+            if(editableTile is EditableTile)
+            {
+                UpdateTileMesh(meshName, (EditableTile)editableTile);
+            }
+        }
         public void UpdateTileMesh(string meshName, EditableTile editableTile)
         {
             Vector2Int index = GetTileIndexByTile(editableTile);

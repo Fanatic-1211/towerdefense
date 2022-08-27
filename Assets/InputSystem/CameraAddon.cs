@@ -30,7 +30,7 @@ namespace Game.GameSystem.CameraControll
             onDraggingInAction = true;
         }
 
-        public void OnInputMouseDragScreenCoordinates(Vector3 delta)
+        public void OnInputMouseDragWorldCoordinates(Vector3 delta)
         {
             
             thisCamera.transform.position += new Vector3(-delta.x,0, -delta.z);
